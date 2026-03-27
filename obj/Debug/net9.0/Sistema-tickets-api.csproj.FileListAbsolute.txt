@@ -69,8 +69,8 @@ C:\Users\CARLOS\Documents\SISTEMA_TICKETS\Backend\Sistema-tickets-api\obj\Debug\
 C:\Users\CARLOS\Documents\SISTEMA_TICKETS\Backend\Sistema-tickets-api\obj\Debug\net9.0\Sistema-tickets-api.pdb
 C:\Users\CARLOS\Documents\SISTEMA_TICKETS\Backend\Sistema-tickets-api\obj\Debug\net9.0\Sistema-tickets-api.genruntimeconfig.cache
 C:\Users\CARLOS\Documents\SISTEMA_TICKETS\Backend\Sistema-tickets-api\obj\Debug\net9.0\ref\Sistema-tickets-api.dll
-C:\Users\CARLOS\Documents\SISTEMA_TICKETS\Backend\Sistema-tickets-api\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\CARLOS\Documents\SISTEMA_TICKETS\Backend\Sistema-tickets-api\bin\Debug\net9.0\BCrypt.Net-Next.dll
 C:\Users\CARLOS\Documents\SISTEMA_TICKETS\Backend\Sistema-tickets-api\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\CARLOS\Documents\SISTEMA_TICKETS\Backend\Sistema-tickets-api\bin\Debug\net9.0\appsettings.Dev.Development.json
 C:\Users\CARLOS\Documents\SISTEMA_TICKETS\Backend\Sistema-tickets-api\bin\Debug\net9.0\appsettings.Dev.json
+C:\Users\CARLOS\Documents\SISTEMA_TICKETS\Backend\Sistema-tickets-api\obj\Debug\net9.0\Sistema-tickets-api.sourcelink.json
