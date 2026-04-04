@@ -15,7 +15,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Configuration
     .SetBasePath(Directory.GetCurrentDirectory())
     //.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-    .AddJsonFile("appsettings.Dev.json", optional: false, reloadOnChange: true);
+    //.AddJsonFile("appsettings.Dev.json", optional: false, reloadOnChange: true);
+    .AddJsonFile("appsettings.UAT.json", optional: false, reloadOnChange: true);
 
 // =======================
 // DB CONTEXT
@@ -126,20 +127,23 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-var app = builder.Build();
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(5000); // HTTP
+});
 
+var app = builder.Build();
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
 // =======================
 // MIDDLEWARE
 // =======================
-if (app.Environment.IsDevelopment())
+app.UseSwagger();
+
+app.UseSwaggerUI(options =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI(options =>
-    {
-        options.SwaggerEndpoint("/swagger/v1/swagger.json", "Sistema Tickets API V1");
-        options.RoutePrefix = "swagger";
-    });
-}
+    options.SwaggerEndpoint("/swagger/v1/swagger.json", "Sistema Tickets API V1");
+    options.RoutePrefix = "swagger";
+});
 
 // Habilitar CORS antes de autenticación
 app.UseCors("AllowAngular");
@@ -150,4 +154,5 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.Urls.Add($"http://0.0.0.0:{port}");
 app.Run();
