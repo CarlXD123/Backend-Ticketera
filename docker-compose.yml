@@ -9,12 +9,22 @@ services:
       ACCEPT_EULA: "${ACCEPT_EULA}"
     ports:
       - "1433:1433"
+    volumes:
+      - sql_data:/var/opt/mssql
 
   backend:
     build: .
     ports:
       - "5000:5000"
     environment:
+      ASPNETCORE_ENVIRONMENT: "UAT"
       ConnectionStrings__TicketsConnection: "Server=${DB_SERVER};Database=${DB_DATABASE};User Id=${DB_USER};Password=${DB_PASSWORD};TrustServerCertificate=${DB_TRUST_SERVER_CERTIFICATE};"
+
+      Jwt__Key: "${JWT_KEY}"
+      Jwt__Issuer: "${JWT_ISSUER}"
+      Jwt__Audience: "${JWT_AUDIENCE}"
     depends_on:
       - sqlserver
+
+volumes:
+  sql_data:
